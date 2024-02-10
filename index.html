@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Just+Me+Again+Down+Here&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" crossorigin href="./assets/index-BsBAg5mn.css">
+  </head>
+  <body>
+    <main
+      id="mainDiv"
+      class="h-screen w-screen bg-[#FFC0CB] flex items-center justify-center"
+    >
+      <div
+        class="flex flex-col h-full w-full items-center justify-center gap-5"
+      >
+        <div class="bg-[#F8778D] w-[35rem] rounded-3xl px-16 pb-16 pt-8">
+          <h1 class="text-4xl text-center font-just">
+            Will You Be My Valentine?
+          </h1>
+          <div class="overflow-hidden object-contain rounded-3xl">
+            <img src="./assets/l4Ki4biBSwhjyrS48-D04Olm4W.webp" alt="" />
+          </div>
+        </div>
+        <div class="flex w-[35rem] justify-start">
+          <button
+            id="YES"
+            class="px-10 py-3 text-4xl font-just border-[#ffc0cb] bg-[#f8778d] rounded-full"
+          >
+            YES
+          </button>
+          <button
+            id="NO"
+            class="px-10 py-3 text-4xl font-just border-[#ffc0cb] bg-[#f8778d] rounded-full absolute left-[58%]" 
+          >
+            NO
+          </button>
+        </div>
+      </div>
+    </main>
+    <div
+      id="noMain"
+      class="h-screen w-screen bg-[#FFC0CB] flex items-center justify-center hidden"
+    >
+      <div class="bg-[#F8778D] w-[35rem] rounded-3xl px-16 pb-16 pt-8">
+        <p class="text-red-600 font-extrabold font-just text-5xl">
+          Thanks for choosing this idiot as your valentine hope we have fun.
+          Loads of love &#9829;&#9829;
+        </p>
+        <br /><br />
+        <p class="text-right text-red-600 font-extrabold font-just text-5xl">
+          --Rydhampreet Singh
+        </p>
+      </div>
+    </div>
+    <script>
+      const button = document.getElementById("NO");
+
+      function getRandomPosition() {
+        const width = window.innerWidth - button.offsetWidth;
+        const height = window.innerHeight - button.offsetHeight;
+        const randomX = Math.floor(Math.random() * width);
+        const randomY = Math.floor(Math.random() * height);
+        return { x: randomX, y: randomY };
+      }
+
+      function updateButtonPosition() {
+        console.log("Ehllo")
+        const position = getRandomPosition();
+        button.style.left = position.x + "px";
+        button.style.top = position.y + "px";
+      }
+
+      button.addEventListener('mouseenter', updateButtonPosition);
+
+      const buttonYes=document.getElementById("YES")
+      const main=document.getElementById("mainDiv")
+      const other=document.getElementById("noMain")
+
+      function changeScreen(){
+        console.log("Pata")
+        main.classList.toggle('hidden')
+        other.classList.toggle('hidden')
+      }
+
+      buttonYes.addEventListener('click',changeScreen);
+
+    </script>
+  </body>
+</html>
